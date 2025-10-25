@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    position: relative;
+    background-image: url(stars.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar{
+    position: relative; 
+    background-color: black;
+    display: flex;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration-style: none;
+    padding: 20px 40px;
+}
+
+.logo{
+    width: 5%;
+    height: 100%;
+    left: 0.5rem;
+}
+
+.menu-link{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    left: 20rem;
+}
+
+.main-content{
+    color: white;
+    display: flex;
+    margin-top: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+.text-area{
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    width: 90%;
+    flex: 1;
+    max-width: 600px;
+}
+.image-area{
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    flex: 1;
+}
+
+.dev{
+    width: 400px;
+    height: 300px;
+}
+.name{
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.role{
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+}
+
+.goal{
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.btn-container{
+    position: absolute;
+    width: auto;
+    display: flex;
+    gap: 80px;
+    padding: 15px 35px;
+    top: 80%;
+    left: 38%;
+    z-index: 1000;
+    border: none;
+    justify-content: center;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
