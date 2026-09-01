@@ -1,526 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Oyedele Yusuf Portfolio</title>
-<meta name="description" content="Oyedele Yusuf: Software Engineer and Community Architect. Full-stack developer, Responsible Administrator at OneState RP, Co-Founder of Chillgaming.">
+<meta name="description" content="Oyedele Yusuf: Software Engineer and Community Operator. Full-stack developer, Responsible Administrator at OneState RP, Community Manager at Chillgaming." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0A0C10;
-    --panel:#12151B;
-    --panel-2:#181C24;
-    --line: rgba(237,239,243,0.09);
-    --paper:#EDEFF3;
-    --fog:#8B93A1;
-    --ember:#FF7A33;
-    --ember-dim: rgba(255,122,51,0.14);
-    --signal:#6C7CFF;
-    --green:#3DDC84;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--ink);
-    color:var(--paper);
-    font-family:'Inter', sans-serif;
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  ::selection{ background:var(--ember); color:var(--ink); }
-
-  h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:600; letter-spacing:-0.02em; }
-  .mono{ font-family:'JetBrains Mono', monospace; }
-
-  .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
-
-  a{ color:inherit; text-decoration:none; }
-
-  /* ---- NAV ---- */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    backdrop-filter: blur(12px);
-    background: rgba(10,12,16,0.72);
-    border-bottom:1px solid var(--line);
-  }
-  nav{
-    display:flex; align-items:center; justify-content:space-between;
-    max-width:1120px; margin:0 auto; padding:18px 32px;
-  }
-  .logo{ font-family:'Space Grotesk'; font-weight:700; font-size:18px; }
-  .logo span{ color:var(--ember); }
-  .navlinks{ display:flex; gap:36px; list-style:none; }
-  .navlinks a{
-    font-family:'JetBrains Mono'; font-size:13px; color:var(--fog);
-    transition:color .2s;
-  }
-  .navlinks a:hover{ color:var(--paper); }
-  .status-pill{
-    display:flex; align-items:center; gap:8px;
-    font-family:'JetBrains Mono'; font-size:12px; color:var(--green);
-    border:1px solid rgba(61,220,132,0.3); padding:6px 12px; border-radius:20px;
-    background: rgba(61,220,132,0.06);
-  }
-  .status-pill .dot{
-    width:7px; height:7px; border-radius:50%; background:var(--green);
-    box-shadow:0 0 8px var(--green);
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:.4} }
-  .navmenu-toggle{ display:none; }
-
-  /* ---- HERO ---- */
-  .hero{
-    padding:180px 0 100px;
-    position:relative;
-  }
-  .hero .wrap{
-    display:grid; grid-template-columns: 1.15fr 0.85fr; gap:56px; align-items:center;
-  }
-  .eyebrow{
-    font-family:'JetBrains Mono'; font-size:13px; color:var(--ember);
-    display:flex; align-items:center; gap:10px; margin-bottom:22px;
-  }
-  .eyebrow::before{ content:''; width:24px; height:1px; background:var(--ember); }
-  .hero h1{
-    font-size:clamp(38px, 5.4vw, 64px); line-height:1.05; margin-bottom:22px;
-  }
-  .hero h1 em{ font-style:normal; color:var(--ember); }
-  .hero p.lede{
-    font-size:18px; color:var(--fog); max-width:520px; margin-bottom:36px;
-  }
-  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
-  .btn{
-    font-family:'JetBrains Mono'; font-size:14px; padding:14px 22px; border-radius:8px;
-    display:inline-flex; align-items:center; gap:8px; transition: all .2s ease;
-  }
-  .btn-primary{ background:var(--ember); color:var(--ink); font-weight:500; }
-  .btn-primary:hover{ background:#ff8f52; transform:translateY(-2px); }
-  .btn-ghost{ border:1px solid var(--line); color:var(--paper); }
-  .btn-ghost:hover{ border-color: var(--fog); }
-
-  /* Discord-style signature card */
-  .server-card{
-    background: linear-gradient(160deg, var(--panel-2), var(--panel));
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:22px;
-    position:relative;
-    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
-  }
-  .server-card::before{
-    content:'live server preview';
-    position:absolute; top:-11px; left:20px;
-    font-family:'JetBrains Mono'; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
-    background:var(--ink); padding:0 8px; color:var(--fog);
-  }
-  .server-card-top{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
-  .server-icon{
-    width:46px; height:46px; border-radius:12px;
-    background: linear-gradient(135deg, var(--ember), #B8471E);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Space Grotesk'; font-weight:700; font-size:16px; color:var(--ink);
-    flex-shrink:0;
-  }
-  .server-name{ font-family:'Space Grotesk'; font-weight:600; font-size:15px; }
-  .server-sub{ font-family:'JetBrains Mono'; font-size:11px; color:var(--fog); margin-top:2px; }
-  .server-stats{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
-  .stat-chip{
-    background:rgba(255,255,255,0.03); border:1px solid var(--line);
-    border-radius:10px; padding:12px;
-  }
-  .stat-chip .num{ font-family:'Space Grotesk'; font-size:20px; font-weight:700; }
-  .stat-chip .lbl{ font-family:'JetBrains Mono'; font-size:10px; color:var(--fog); margin-top:2px; text-transform:uppercase; letter-spacing:.06em; }
-  .role-tags{ display:flex; flex-wrap:wrap; gap:6px; }
-  .role-tag{
-    font-family:'JetBrains Mono'; font-size:10.5px; padding:5px 9px; border-radius:6px;
-    background:var(--ember-dim); color:var(--ember); border:1px solid rgba(255,122,51,0.25);
-  }
-
-  /* ---- STATS BAR ---- */
-  .statsbar{
-    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-    padding:32px 0;
-  }
-  .statsbar .wrap{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
-  .sb-item .num{ font-family:'Space Grotesk'; font-size:30px; font-weight:700; color:var(--paper); }
-  .sb-item .num span{ color:var(--ember); }
-  .sb-item .lbl{ font-family:'JetBrains Mono'; font-size:12px; color:var(--fog); margin-top:4px; }
-
-  /* ---- SECTION SHELL ---- */
-  section{ padding:110px 0; }
-  .sec-eyebrow{
-    font-family:'JetBrains Mono'; font-size:13px; color:var(--fog);
-    margin-bottom:14px;
-  }
-  .sec-eyebrow .n{ color:var(--ember); }
-  .sec-title{ font-size:clamp(26px,3.4vw,38px); max-width:640px; margin-bottom:56px; }
-  .sec-title em{ font-style:normal; color:var(--ember); }
-
-  /* ---- ABOUT ---- */
-  .about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:64px; }
-  .about-grid p{ color:var(--fog); margin-bottom:18px; font-size:16px; }
-  .about-grid strong{ color:var(--paper); font-weight:600; }
-  .about-grid em{ color:var(--paper); font-style:normal; }
-  .skill-block{ margin-bottom:26px; }
-  .skill-block h4{ font-family:'JetBrains Mono'; font-size:12px; color:var(--ember); text-transform:uppercase; letter-spacing:.06em; margin-bottom:12px; }
-  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; }
-  .pill{
-    font-family:'JetBrains Mono'; font-size:12.5px; color:var(--paper);
-    border:1px solid var(--line); border-radius:7px; padding:7px 12px;
-    background:var(--panel);
-  }
-
-  /* ---- PROJECTS ---- */
-  .proj-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-  .proj-card{
-    background:var(--panel); border:1px solid var(--line); border-radius:16px;
-    padding:28px; transition: transform .25s ease, border-color .25s ease;
-  }
-  .proj-card:hover{ transform:translateY(-4px); border-color:rgba(255,122,51,0.35); }
-  .proj-card.wide{ grid-column: span 2; }
-  .proj-kicker{ font-family:'JetBrains Mono'; font-size:11px; color:var(--ember); text-transform:uppercase; letter-spacing:.07em; margin-bottom:10px; }
-  .proj-card h3{ font-size:20px; margin-bottom:10px; }
-  .proj-card p{ color:var(--fog); font-size:14.5px; margin-bottom:16px; }
-  .proj-tags{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px; }
-  .tag{ font-family:'JetBrains Mono'; font-size:11px; color:var(--fog); border:1px solid var(--line); padding:4px 9px; border-radius:6px; }
-  .proj-meta{ display:flex; gap:18px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:14px; }
-  .proj-meta div{ font-family:'JetBrains Mono'; font-size:11.5px; color:var(--fog); }
-  .proj-meta b{ color:var(--paper); }
-  .proj-link{ font-family:'JetBrains Mono'; font-size:12.5px; color:var(--signal); display:inline-flex; align-items:center; gap:5px; margin-top:14px; }
-
-  /* ---- EXPERIENCE ---- */
-  .timeline{ position:relative; padding-left:32px; }
-  .timeline::before{ content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--line); }
-  .tl-item{ position:relative; padding-bottom:44px; }
-  .tl-item:last-child{ padding-bottom:0; }
-  .tl-item::before{
-    content:''; position:absolute; left:-32px; top:5px; width:11px; height:11px; border-radius:50%;
-    background:var(--ink); border:2px solid var(--ember);
-  }
-  .tl-top{ display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:6px; }
-  .tl-role{ font-size:19px; font-weight:600; font-family:'Space Grotesk'; }
-  .tl-date{ font-family:'JetBrains Mono'; font-size:12px; color:var(--ember); background:var(--ember-dim); padding:4px 10px; border-radius:20px; }
-  .tl-org{ font-family:'JetBrains Mono'; font-size:13px; color:var(--fog); margin-bottom:14px; }
-  .tl-item ul{ list-style:none; }
-  .tl-item li{ color:var(--fog); font-size:14.5px; padding-left:18px; position:relative; margin-bottom:8px; }
-  .tl-item li::before{ content:'—'; position:absolute; left:0; color:var(--ember); }
-
-  /* ---- SKILLS ---- */
-  .skills-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-  .skill-card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:28px; }
-  .skill-card h3{ font-size:17px; margin-bottom:18px; display:flex; align-items:center; gap:10px; }
-  .skill-card h3::before{ content:''; width:8px; height:8px; border-radius:2px; background:var(--ember); }
-
-  /* ---- CONTACT ---- */
-  .contact{ text-align:center; }
-  .contact .sec-title{ margin:0 auto 20px; }
-  .contact p.lede{ color:var(--fog); max-width:480px; margin:0 auto 40px; font-size:16px; }
-  .contact-links{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:60px;}
-
-  footer{ border-top:1px solid var(--line); padding:28px 0; }
-  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-  footer p{ font-family:'JetBrains Mono'; font-size:12px; color:var(--fog); }
-
-  .reveal{ opacity:0; transform:translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.in{ opacity:1; transform:none; }
-
-  @media (max-width:860px){
-    .navlinks{ display:none; }
-    .hero .wrap{ grid-template-columns:1fr; }
-    .about-grid{ grid-template-columns:1fr; gap:36px; }
-    .proj-grid{ grid-template-columns:1fr; }
-    .proj-card.wide{ grid-column:span 1; }
-    .skills-grid{ grid-template-columns:1fr; }
-    .statsbar .wrap{ grid-template-columns:1fr 1fr; gap:28px 16px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <nav>
-    <div class="logo">OY<span>.</span></div>
-    <ul class="navlinks">
-      <li><a href="#about">about</a></li>
-      <li><a href="#projects">projects</a></li>
-      <li><a href="#experience">experience</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#contact">contact</a></li>
+
+<nav>
+  <div class="wrap">
+    <span class="logo">OY.</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="status-pill"><span class="dot"></span>open to work</div>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow mono">SOFTWARE ENGINEER · COMMUNITY ARCHITECT</div>
-      <h1>I build the <em>backend</em><br>and the <em>community</em><br>it runs on.</h1>
-      <p class="lede">Full-stack developer and Discord community operator based in Nigeria. I ship production web apps and run large-scale gaming communities, usually both in the same week.</p>
-      <div class="cta-row">
-        <a href="#projects" class="btn btn-primary">View my work →</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-    </div>
-
-    <div class="server-card reveal in">
-      <div class="server-card-top">
-        <div class="server-icon">OS</div>
-        <div>
-          <div class="server-name">OneState RP (AFR)</div>
-          <div class="server-sub mono">Responsible Administrator</div>
-        </div>
-      </div>
-      <div class="server-stats">
-        <div class="stat-chip">
-          <div class="num">57K<span style="color:var(--ember)">+</span></div>
-          <div class="lbl">members</div>
-        </div>
-        <div class="stat-chip">
-          <div class="num">200<span style="color:var(--ember)">+</span></div>
-          <div class="lbl">admins coordinated</div>
-        </div>
-      </div>
-      <div class="role-tags">
-        <span class="role-tag">weekly reports</span>
-        <span class="role-tag">monthly reports</span>
-        <span class="role-tag">moderation</span>
-      </div>
-    </div>
+    <span class="status-pill">Open to work</span>
   </div>
-</section>
+</nav>
 
-<div class="statsbar">
-  <div class="wrap">
-    <div class="sb-item"><div class="num"><span>57K+</span></div><div class="lbl">Discord members reached</div></div>
-    <div class="sb-item"><div class="num"><span>200+</span></div><div class="lbl">Admins coordinated</div></div>
-    <div class="sb-item"><div class="num"><span>2</span></div><div class="lbl">Communities built & run</div></div>
-    <div class="sb-item"><div class="num"><span>3.9</span></div><div class="lbl">CGPA / 5.0</div></div>
+<div class="hero wrap">
+  <div class="eyebrow">Software Engineer · Community Operator</div>
+  <h1>I build the <em>software</em> and run the <em>communities</em> that live in it.</h1>
+  <p>Full-stack developer and Discord community lead based in Lagos, Nigeria. I ship client web projects and also help run a large social roleplay community, often in the same week.</p>
+  <div class="hero-cta">
+    <a class="btn btn-solid" href="#projects">View my work</a>
+    <a class="btn btn-outline" href="#contact">Get in touch</a>
   </div>
 </div>
 
-<section id="about">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span class="n">// 01</span> — about</div>
-    <h2 class="sec-title">Engineer by training,<br><em>community operator</em> by practice.</h2>
+<div class="wrap">
+  <div class="stat-strip">
+    <div><div class="num">35</div><div class="label">Staff managed, Glendale server</div></div>
+    <div><div class="num">57K+</div><div class="label">Members across the AFR region</div></div>
+    <div><div class="num">100+</div><div class="label">Members, Chillgaming</div></div>
+  </div>
+</div>
 
+<div class="wrap">
+
+  <section id="about">
+    <div class="section-num">01. About</div>
+    <h2>Engineer by training, <em>community operator</em> by practice.</h2>
     <div class="about-grid">
       <div>
-        <p>I'm a <strong>Software Engineering student at Abiola Ajimobi Technical University</strong> in Ibadan, with a track record that bridges two things people usually keep separate, shipping real software, and running real communities at scale.</p>
-        <p>On the technical side, I recently shipped <em>AATU-SDCS</em>, a full-stack case management system built with <strong>React, Vite and TypeScript</strong> on the frontend and <strong>Supabase (PostgreSQL + PL/pgSQL).</strong>On the backend, handling incident intake, evidence tracking and hearing schedules for a real institutional workflow. Before that, I interned at HIIT Plc, where I designed and built a company website that went on to represent them at a regional competition.</p>
-        <p>On the community side, I'm a <strong>Responsible Administrator for OneState RP's African regional server</strong>, a 57,000+ member social roleplay community where I work alongside AFR-region Community Managers, help coordinate a 200+ person moderation team, and author weekly and monthly reports for senior leadership. Separately, I co-founded <strong>Chillgaming</strong>, a Discord community I built from zero alongside a colleague and have grown to roughly 500 members.</p>
-        <p>I'm fluent in <em>English</em> and <em>Arabic</em>, and comfortable moving between a technical standup and a moderator escalation call, that combination is what I bring to any team.</p>
+        <p>I'm a <strong>Software Engineering student at Abiola Ajimobi Technical University</strong> in Ibadan, currently interning as a software engineer at <strong>HS Advanced Technology</strong> and <strong>Globus Bank</strong>. My day-to-day involves building and maintaining client websites, mostly in WordPress, with some AI feature integration. I also coordinate with senior developers on the right solution for each customer.</p>
+        <p>On the community side, I'm a <strong>Responsible Administrator for OneState RP's Glendale server</strong>, part of the game's AFR region, a 57,000+ member social roleplay community region-wide. I manage a 35-person staff team, run weekly meetings, and report directly to the region's Lead Administrator and Community Manager. Separately, I'm <strong>Community Manager for Chillgaming</strong>, a 100+ member gaming Discord, where I work with the founder on structure and growth.</p>
+        <p>I'm fluent in English and understand and speak some Arabic. I'm comfortable moving between a technical standup and a moderator check-in. That combination is what I bring to any team.</p>
       </div>
-
-      <div>
-        <div class="skill-block">
-          <h4 class="mono">technical skills</h4>
-          <div class="pill-row">
-            <span class="pill">TypeScript</span><span class="pill">React</span><span class="pill">Vite</span>
-            <span class="pill">JavaScript</span><span class="pill">HTML/CSS</span><span class="pill">Python</span>
-            <span class="pill">PostgreSQL</span><span class="pill">Supabase</span><span class="pill">PL/pgSQL</span>
-            <span class="pill">Git / GitHub</span>
-          </div>
+      <div class="side-block">
+        <h4>Technical Skills</h4>
+        <div class="tag-row">
+          <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Vite</span>
+          <span class="tag">WordPress</span><span class="tag">Python</span><span class="tag">PostgreSQL</span>
+          <span class="tag">Supabase</span><span class="tag">Git/GitHub</span>
         </div>
-        <div class="skill-block">
-          <h4 class="mono">community & ops</h4>
-          <div class="pill-row">
-            <span class="pill">Discord Architecture</span><span class="pill">Moderator Coordination</span>
-            <span class="pill">Weekly/Monthly Reporting</span><span class="pill">Conflict Resolution</span>
-            <span class="pill">Event Support</span><span class="pill">Payment Coordination</span>
-          </div>
-        </div>
-        <div class="skill-block">
-          <h4 class="mono">education</h4>
-          <div class="pill-row"><span class="pill">B.Sc. Software Engineering — AATU, Ibadan (expected 2027)</span></div>
-        </div>
-        <div class="skill-block">
-          <h4 class="mono">languages</h4>
-          <div class="pill-row"><span class="pill">English — Fluent</span><span class="pill">Arabic — Fluent</span></div>
+        <h4>Community &amp; Ops</h4>
+        <div class="tag-row">
+          <span class="tag">Discord Architecture</span><span class="tag">Team Leadership</span>
+          <span class="tag">Reporting</span><span class="tag">Conflict Resolution</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span class="n">// 02</span> — projects</div>
-    <h2 class="sec-title">Things I've built <em>and shipped.</em></h2>
-
-    <div class="proj-grid">
-      <div class="proj-card wide">
-        <div class="proj-kicker">full-stack web app</div>
-        <h3>AATU-SDCS — Disciplinary Committee Case Management</h3>
-        <p>A production case management system for university disciplinary proceedings, incident intake, evidence tracking, hearing scheduling, and sanction records in one auditable workspace.</p>
-        <div class="proj-tags">
-          <span class="tag">React</span><span class="tag">Vite</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PL/pgSQL</span>
-        </div>
-        <div class="proj-meta">
-          <div>Stack <b>90% TypeScript</b></div>
-          <div>Status <b>Live & deployed</b></div>
-        </div>
-        <a class="proj-link" href="https://aatu-sdcs.vercel.app/" target="_blank" rel="noopener">View live site →</a>
+  <section id="projects">
+    <div class="section-num">02. Projects</div>
+    <h2>Things I've <em>built and run</em>.</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="kicker">Full-stack web app</div>
+        <h3>AATU-SDCS: Disciplinary Committee Case Management</h3>
+        <p>A case management system handling incident intake, evidence tracking, hearing scheduling, and sanction records in one auditable workspace.</p>
+        <div class="stack">React (Vite) · TypeScript · Supabase · PL/pgSQL</div>
+        <a class="view" href="https://aatu-sdcs.vercel.app/" target="_blank" rel="noopener">View live site →</a>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-kicker">community management</div>
-        <h3>OneState RP — AFR Server</h3>
-        <p>Responsible Administrator for the African regional server of a globally recognised social roleplay community, reporting to the Lead Administrator.</p>
-        <div class="proj-tags"><span class="tag">Discord</span><span class="tag">Moderation</span><span class="tag">Reporting</span></div>
-        <div class="proj-meta">
-          <div>Members <b>57,000+</b></div>
-          <div>Mods <b>200+</b></div>
-        </div>
+      <div class="card">
+        <div class="kicker">Community management</div>
+        <h3>OneState RP: Glendale Server</h3>
+        <p>Responsible Administrator for the Glendale server within OneState RP's AFR region, reporting to the region's Lead Administrator and Community Manager.</p>
+        <div class="meta-row"><div><b>35</b>staff</div><div><b>57K+</b>region members</div></div>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-kicker">community building</div>
+      <div class="card">
+        <div class="kicker">Community management</div>
         <h3>Chillgaming</h3>
-        <p>Co-founded and built a gaming Discord server from scratch alongside a colleague, structure, moderation, and culture from day one.</p>
-        <div class="proj-tags"><span class="tag">Discord</span><span class="tag">Server Architecture</span><span class="tag">Growth</span></div>
-        <div class="proj-meta">
-          <div>Members <b>~500</b></div>
-          <div>Status <b>Ongoing</b></div>
-        </div>
+        <p>Community Manager for a 100+ member gaming Discord, working with the founder on server structure and activity. The community spans RPG, sports, racing, and action games.</p>
+        <div class="meta-row"><div><b>100+</b>members</div><div><b>Mar 2026</b>joined</div></div>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-kicker">web development</div>
-        <h3>HIIT Plc — Company Website</h3>
-        <p>Independently designed and built during my internship, the project went on to represent the company at a regional competition.</p>
-        <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-        <div class="proj-meta">
-          <div>Build <b>Solo</b></div>
-          <div>Result <b>Competition-selected</b></div>
-        </div>
+      <div class="card">
+        <div class="kicker">Web development</div>
+        <h3>HIIT Plc: Company Website</h3>
+        <p>Designed and built a movie website during my internship; the project went on to represent the company at a regional inter-branch competition.</p>
+        <div class="stack">HTML · CSS · JavaScript</div>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-kicker">data / ml</div>
+      <div class="card">
+        <div class="kicker">Data / ML</div>
         <h3>Stress Recognition Model</h3>
         <p>A university project comparing Random Forest, Bayesian Belief Network, and AdaBoost to classify stress levels from input data.</p>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Jupyter</span></div>
-        <div class="proj-meta">
-          <div>Type <b>Academic project</b></div>
-          <div>Date <b>Feb 2026</b></div>
+        <div class="stack">Python · scikit-learn · Jupyter</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-num">03. Experience</div>
+    <h2>Where I've <em>shown up</em>.</h2>
+
+    <div class="timeline-item">
+      <div class="when">Jul 2026 to Present</div>
+      <div>
+        <h3>Software Engineering Intern</h3>
+        <div class="org">HS Advanced Technology · Hybrid/Remote</div>
+        <ul>
+          <li>Build and maintain WordPress websites for clients around the world, enabling clients to manage their own content.</li>
+          <li>Integrate AI-powered features into client websites.</li>
+          <li>Coordinate with senior developers to identify the best-fit technical solution for each customer's needs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="when">Aug 2026 to Present</div>
+      <div>
+        <h3>Software Engineering Intern</h3>
+        <div class="org">Globus Bank · On-site</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="when">Jul 2025 to Present</div>
+      <div>
+        <h3>Responsible Administrator</h3>
+        <div class="org">OneState RP · Glendale Server, AFR Region</div>
+        <ul>
+          <li>Oversee a 35-person staff team, including 2 Administrators, Moderators, and Helpers.</li>
+          <li>Run weekly meetings with the admin team to review server health, staff performance, and open issues.</li>
+          <li>Monitor activity across the wider AFR region alongside the region's Community Manager and Lead Administrator.</li>
+          <li>Track staff performance on structured spreadsheets and write weekly reports on team performance, player feedback, and staff feedback.</li>
+        </ul>
+        <div class="promo-track">
+          <div class="promo-step"><span class="dot"></span><b>Helper</b> <span class="arrow">(Nov 2024)</span></div>
+          <div class="promo-step"><span class="dot"></span><b>Moderator</b> <span class="arrow">(Dec 2024)</span></div>
+          <div class="promo-step"><span class="dot"></span><b>Administrator</b> <span class="arrow">(Jan 2025)</span></div>
+          <div class="promo-step"><span class="dot"></span><b>Responsible Administrator</b> <span class="arrow">(Jul 2025)</span></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="experience">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span class="n">// 03</span> — experience</div>
-    <h2 class="sec-title">Where I've shown up <em>and delivered.</em></h2>
-
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-top"><div class="tl-role">Responsible Administrator</div><div class="tl-date mono">Dec 2024 — Present</div></div>
-        <div class="tl-org mono">OneState RP · AFR Regional Server</div>
+    <div class="timeline-item">
+      <div class="when">Mar 2026 to Present</div>
+      <div>
+        <h3>Community Manager</h3>
+        <div class="org">Chillgaming</div>
         <ul>
-          <li>Support oversight of operations for the African regional server, reporting to the Lead Administrator</li>
-          <li>Work closely with moderators and Community Managers, including AFR-region CMs Viking and Draya</li>
-          <li>Author weekly and monthly stability reports for senior community leadership</li>
-          <li>Moderate day to day: enforce guidelines, resolve disputes, keep the roleplay environment healthy</li>
-          <li>Support payment coordination for administrative staff across the server</li>
-        </ul>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-top"><div class="tl-role">Co-Founder & Server Admin</div><div class="tl-date mono">Ongoing</div></div>
-        <div class="tl-org mono">Chillgaming · Discord Community</div>
-        <ul>
-          <li>Co-founded and built a gaming Discord server from scratch alongside a colleague</li>
-          <li>Grew the community to roughly 500 members from a standing start</li>
-          <li>Own moderation, channel structure, and member engagement</li>
-        </ul>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-top"><div class="tl-role">Web Development Intern</div><div class="tl-date mono">Aug — Oct 2025</div></div>
-        <div class="tl-org mono">HIIT Plc · Ibadan, Nigeria</div>
-        <ul>
-          <li>Strengthened core web development skills through structured training</li>
-          <li>Designed and built a website selected to represent the company at a regional competition</li>
-          <li>Presented the project and its development process to company stakeholders</li>
-        </ul>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-top"><div class="tl-role">B.Sc. Software Engineering</div><div class="tl-date mono">2023 — 2027 (expected)</div></div>
-        <div class="tl-org mono">Abiola Ajimobi Technical University · Ibadan</div>
-        <ul>
-          <li>CGPA 3.9 / 5.0 — Database Management Systems, OOP & Design, Software Engineering Economics</li>
-          <li>Built a stress-recognition ML model using Random Forest, BBN, and AdaBoost</li>
-          <li>Balancing coursework with shipping real full-stack projects and running two communities</li>
+          <li>Manage a 100+ member Discord community spanning RPG, sports, racing, and action games.</li>
+          <li>Work with the founder to identify and implement improvements to server structure and activity.</li>
+          <li>Oversee junior members and maintain regular communication across the community.</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span class="n">// 04</span> — skills</div>
-    <h2 class="sec-title">What I bring <em>to the table.</em></h2>
+    <div class="timeline-item">
+      <div class="when">Aug 2025 to Oct 2025</div>
+      <div>
+        <h3>Web Development Intern</h3>
+        <div class="org">Hiit Plc, Ibadan</div>
+        <ul>
+          <li>Strengthened core web development skills through structured, hands-on training.</li>
+          <li>Designed and built a website selected to represent the company at a regional competition.</li>
+          <li>Presented the project to company stakeholders.</li>
+        </ul>
+      </div>
+    </div>
 
+    <div class="timeline-item">
+      <div class="when">2023 to 2027 (expected)</div>
+      <div>
+        <h3>B.Sc. Software Engineering</h3>
+        <div class="org">Abiola Ajimobi Technical University, Ibadan</div>
+        <ul>
+          <li>Relevant coursework: Database Management Systems, Object-Oriented Analysis &amp; Design, Software Engineering Economics.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-num">04. Skills</div>
+    <h2>What I bring <em>to the table</em>.</h2>
     <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Development</h3>
-        <div class="pill-row">
-          <span class="pill">TypeScript</span><span class="pill">JavaScript (ES6+)</span><span class="pill">React</span>
-          <span class="pill">Vite</span><span class="pill">HTML5 / CSS3</span><span class="pill">Python</span>
-          <span class="pill">PostgreSQL</span><span class="pill">Supabase</span><span class="pill">PL/pgSQL</span>
-          <span class="pill">Git / GitHub</span>
+      <div>
+        <h4>Development</h4>
+        <div class="tag-row">
+          <span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">React</span>
+          <span class="tag">Vite</span><span class="tag">HTML5/CSS3</span><span class="tag">Python</span>
+          <span class="tag">WordPress</span><span class="tag">PostgreSQL</span><span class="tag">Supabase</span>
+          <span class="tag">PL/pgSQL</span><span class="tag">Git/GitHub</span>
         </div>
       </div>
-      <div class="skill-card">
-        <h3>Community & Communication</h3>
-        <div class="pill-row">
-          <span class="pill">Discord Server Architecture</span><span class="pill">Moderation Strategy</span>
-          <span class="pill">Team Coordination</span><span class="pill">Weekly/Monthly Reporting</span>
-          <span class="pill">Conflict Resolution</span><span class="pill">Event Support</span>
-          <span class="pill">Payment Coordination</span>
+      <div>
+        <h4>Community &amp; Communication</h4>
+        <div class="tag-row">
+          <span class="tag">Discord Server Architecture</span><span class="tag">Team Leadership</span>
+          <span class="tag">Moderation Policy</span><span class="tag">Reporting</span>
+          <span class="tag">Conflict Resolution</span><span class="tag">Stakeholder Presentations</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div class="sec-eyebrow" style="justify-content:center; display:flex;"><span class="n">// 05</span>&nbsp;— contact</div>
-    <h2 class="sec-title">Let's build something<br><em>worth talking about.</em></h2>
-    <p class="lede">Open to community management roles, full-stack development work, and anything sitting at the intersection of the two.</p>
-    <div class="contact-links">
-      <a href="mailto:yusufoyedele7@gmail.com" class="btn btn-primary">yusufoyedele7@gmail.com</a>
-      <a href="https://github.com/Dprince77s" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-      <a href="https://www.linkedin.com/in/oyedele-yusuf-6a7b36302" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
-      <a href="https://x.com/yusuf45158639" target="_blank" rel="noopener" class="btn btn-ghost">X / Twitter</a>
+  <section id="contact">
+    <div class="contact-box">
+      <div class="section-num">05. Contact</div>
+      <h2>Let's build something <em>worth talking about</em>.</h2>
+      <p>Open to frontend/full-stack development roles and community management roles, or anything sitting at the intersection of the two.</p>
+      <div class="contact-links">
+        <a href="mailto:yusufoyedele7@gmail.com">Email</a>
+        <a href="https://github.com/Dprince77s" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/oyedele-yusuf-6a7b36302" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/yusuf45158639" target="_blank" rel="noopener">X / Twitter</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="wrap">
-    <p>© 2026 Oyedele Yusuf.</p>
-    <p>Ibadan, Nigeria — built with intention.</p>
-  </div>
-</footer>
+</div>
 
-<script>
-  const revealEls = document.querySelectorAll('.sec-title, .proj-card, .tl-item, .skill-card, .about-grid > div');
-  revealEls.forEach(el => el.classList.add('reveal'));
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold:0.12 });
-  revealEls.forEach(el=>io.observe(el));
-</script>
+<footer>© 2026 Oyedele Yusuf · Ibadan, Nigeria</footer>
 
+<script src="script.js" defer></script>
 </body>
 </html>
