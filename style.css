@@ -63,11 +63,7 @@
   .card .meta-row { display: flex; gap: 20px; font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
   .card .meta-row b { color: var(--text); display: block; font-size: 17px; }
   .card .stack { font-size: 13px; color: var(--muted); }
-<<<<<<< HEAD
   .card a.view { font-size: 14px; font-weight: 600; display: inline-block; margin-top: 8px; margin-right: 16px; }
-=======
-  .card a.view { font-size: 14px; font-weight: 600; display: inline-block; margin-top: 8px; }
->>>>>>> 58a06cf7834e52f735849bb0e64ed5e0218cc0e1
 
   .timeline-item { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
   .timeline-item:first-child { border-top: none; }
@@ -95,7 +91,6 @@
   .contact-links a { border: 1px solid var(--line); padding: 10px 18px; border-radius: 6px; color: var(--text); }
   .contact-links a:hover { border-color: var(--accent); text-decoration: none; }
 
-<<<<<<< HEAD
   footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
   .section-intro { color: var(--muted); max-width: 680px; margin: 0 0 28px; font-size: 15.5px; }
   .ticket-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -111,6 +106,10 @@
   .ticket .msg.agent { background: #17150F; border: 1px solid #3A3220; }
   .ticket .resolution { font-size: 13.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; margin-top: 4px; }
   .ticket .resolution b { color: var(--text); }
-=======
-  footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
->>>>>>> 58a06cf7834e52f735849bb0e64ed5e0218cc0e1
+
+  .gallery-title { font-size: 19px; margin: 40px 0 16px; }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @media (max-width: 800px) { .gallery { grid-template-columns: 1fr; } }
+  .shot { display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; color: var(--muted); font-size: 13.5px; }
+  .shot:hover { text-decoration: none; border-color: var(--accent); }
+  .shot img { width: 100%; height: auto; border-radius: 6px; display: block; background: #fff; margin-bottom: 10px; }
